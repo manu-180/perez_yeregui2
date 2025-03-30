@@ -1,0 +1,2 @@
+C:/Users/Manuel/Desktop/Folder/creandoweb/perezyeregui/android/app/.cxx/Debug/476e2a23/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Manuel/Desktop/Folder/creandoweb/perezyeregui/android/app/.cxx/Debug/476e2a23/armeabi-v7a/CMakeFiles/rebuild_cache.dir
