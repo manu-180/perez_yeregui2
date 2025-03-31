@@ -64,25 +64,13 @@ class FooterState extends State<Footer> {
         Container(
           color: Color(0xFF5C5664), // Fondo azul oscuro
           padding: EdgeInsets.all(20),
-          child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () => context.go("/"),
-                      child: Image.asset(
-                        'assets/icon/logo-perez-yeregui.png',
-                        height: 130,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    GestureDetector(
-                      onTap: openInstagram,
-                      child: SvgPicture.asset(
-                        'assets/icon/iglogo.svg',
-                        height: 50,
-                      ),
-                    ),
-                  ],
-                ),
+          child: GestureDetector(
+            onTap: () => context.go("/"),
+            child: Image.asset(
+              'assets/icon/logo-perez-yeregui.png',
+              height: 130,
+            ),
+          ),
         ),
 
         // Segunda Columna (Listado de Servicios)
@@ -167,6 +155,7 @@ class FooterState extends State<Footer> {
             ),
           ),
         ),
+        SizedBox(height: 15),
 
         // Segunda Columna (Listado de Servicios)
 

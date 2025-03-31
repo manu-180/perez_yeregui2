@@ -215,28 +215,7 @@ class EncabezadoState extends State<Encabezado>
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // Texto con animación de entrada
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.white),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.white),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: FaIcon(FontAwesomeIcons.instagram, color: Colors.white),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: FaIcon(FontAwesomeIcons.linkedin, color: Colors.white),
-              onPressed: () {},
-            ),
-          ],
-        ),
-        SizedBox(height: size.width * 0.1),
+       
         SlideTransition(
           position: _slideAnimation,
           child: FadeTransition(
@@ -246,7 +225,7 @@ class EncabezadoState extends State<Encabezado>
                 TyperAnimatedText(
                   "Protegé lo que más valorás.",
                   textStyle: GoogleFonts.montserrat(
-                    fontSize: size.width *
+                    fontSize:size.width *
                         0.06, // Tamaño de fuente más grande en móvil
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
