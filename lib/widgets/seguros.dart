@@ -77,51 +77,53 @@ class SegurosWidgetState extends State<SegurosWidget> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Conocé nuestros seguros",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize:
-                  screenWidth > 1000 ? screenWidth * 0.03 : screenWidth * 0.07,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF5C5664),
-            ),
-          ),
-          SizedBox(height: screenWidth * 0.02),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              int crossAxisCount = screenWidth > 1000 ? 5 : 2;
+    return Container(
+  color: Colors.white, // ✅ fondo blanco para esta sección
+  width: double.infinity,
+  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04, vertical: 60),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        "Conocé nuestros seguros",
+        textAlign: TextAlign.start,
+        style: TextStyle(
+          fontSize: screenWidth > 1000 ? screenWidth * 0.03 : screenWidth * 0.07,
+          fontWeight: FontWeight.bold,
+          color: Color(0xFF5C5664),
+        ),
+      ),
+      SizedBox(height: screenWidth * 0.02),
+      LayoutBuilder(
+        builder: (context, constraints) {
+          int crossAxisCount = screenWidth > 1000 ? 5 : 2;
 
-              return GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: crossAxisCount,
-                  crossAxisSpacing: screenWidth * 0.02,
-                  mainAxisSpacing: screenWidth * 0.02,
-                  childAspectRatio: 1, // Reducido para aumentar la altura
-                ),
-                itemCount: seguros.length,
-                itemBuilder: (context, index) {
-                  final seguro = seguros[index];
-                  return SeguroItem(
-                    icon: seguro['icon'] as IconData,
-                    title: seguro['title'] as String,
-                    subtitle: seguro['subtitle'] as String,
-                    ruta: seguro['ruta'],
-                  );
-                },
+          return GridView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
+              crossAxisSpacing: screenWidth * 0.02,
+              mainAxisSpacing: screenWidth * 0.02,
+              childAspectRatio: 1,
+            ),
+            itemCount: seguros.length,
+            itemBuilder: (context, index) {
+              final seguro = seguros[index];
+              return SeguroItem(
+                icon: seguro['icon'] as IconData,
+                title: seguro['title'] as String,
+                subtitle: seguro['subtitle'] as String,
+                ruta: seguro['ruta'],
               );
             },
-          ),
-        ],
+          );
+        },
       ),
-    );
+    ],
+  ),
+);
+
   }
 }
 

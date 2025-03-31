@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:perezyeregui/utils/launch_instagram_stub.dart';
 
 class Footer extends StatefulWidget {
   const Footer({super.key});
@@ -47,6 +49,12 @@ class FooterState extends State<Footer> {
     );
   }
 
+  void openInstagram() async {
+  const url = 'https://www.instagram.com/segurosperezyeregui/?utm_source=qr&igsh=MTNiamFxYnoyaWQxaA%3D%3D#';
+
+  openInstagramWeb(url); // Esta función solo abrirá en web
+}
+
   // Diseño para pantallas grandes (> 1000 px)
   Widget _buildDesktopLayout(BuildContext context) {
     return Row(
@@ -56,43 +64,25 @@ class FooterState extends State<Footer> {
         Container(
           color: Color(0xFF5C5664), // Fondo azul oscuro
           padding: EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Texto "PEREZ YEREGUI"
-              Text(
-                "PEREZ YEREGUI",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  fontFamily:
-                      'Roboto', // Puedes cambiar la fuente según tus necesidades
+          child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () => context.go("/"),
+                      child: Image.asset(
+                        'assets/icon/logo-perez-yeregui.png',
+                        height: 130,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    GestureDetector(
+                      onTap: openInstagram,
+                      child: SvgPicture.asset(
+                        'assets/icon/iglogo.svg',
+                        height: 50,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              // Texto "& ASOCIADOS"
-              Text(
-                "& ASOCIADOS",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Roboto',
-                ),
-              ),
-              SizedBox(height: 10),
-              // Texto "SEGUROS-REASEGUROS"
-              Text(
-                "SEGUROS - REASEGUROS",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Roboto',
-                ),
-              ),
-            ],
-          ),
         ),
 
         // Segunda Columna (Listado de Servicios)
@@ -169,42 +159,12 @@ class FooterState extends State<Footer> {
         Container(
           color: Color(0xFF5C5664), // Fondo azul oscuro
           padding: EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Texto "PEREZ YEREGUI"
-              Text(
-                "PEREZ YEREGUI",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  fontFamily:
-                      'Roboto', // Puedes cambiar la fuente según tus necesidades
-                ),
-              ),
-              // Texto "& ASOCIADOS"
-              Text(
-                "& ASOCIADOS",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Roboto',
-                ),
-              ),
-              SizedBox(height: 10),
-              // Texto "SEGUROS-REASEGUROS"
-              Text(
-                "SEGUROS - REASEGUROS",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Roboto',
-                ),
-              ),
-            ],
+          child: GestureDetector(
+            onTap: () => context.go("/"),
+            child: Image.asset(
+              'assets/icon/logo-perez-yeregui.png',
+              height: 120,
+            ),
           ),
         ),
 

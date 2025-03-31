@@ -10,18 +10,19 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF5C5664),
+      
       body: SingleChildScrollView(
         child: SizedBox(
           width: double.infinity,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomAppBar(),
-              Encabezado(),
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    CustomAppBar(),
+    Encabezado(),
               SizedBox(height: 100),
               SegurosWidget(),
-              SizedBox(height: 150),
+              SizedBox(height: 40),
               Footer()
             ],
           ),
