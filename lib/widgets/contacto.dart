@@ -10,7 +10,8 @@ class Contacto extends StatefulWidget {
 }
 
 class _ContactoState extends State<Contacto> {
-  // Controladores
+  final _formKey = GlobalKey<FormState>();
+
   final nombreController = TextEditingController();
   final celularController = TextEditingController();
   final correoController = TextEditingController();
@@ -20,9 +21,11 @@ class _ContactoState extends State<Contacto> {
   bool enviando = false;
 
   Future<void> enviarFormulario() async {
+    if (!_formKey.currentState!.validate()) return;
+
     const serviceId = 'service_0tzx0aw';
-    const templateId = 'template_0acu8r8'; 
-    const publicKey = 'UapUkrGXYrXahZMcZ';   
+    const templateId = 'template_0acu8r8';
+    const publicKey = 'UapUkrGXYrXahZMcZ';
 
     final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
 
@@ -128,52 +131,115 @@ class _ContactoState extends State<Contacto> {
   }
 
   Widget _buildContactForm() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Contacto",
-          style: TextStyle(
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Contacto",
+            style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF5C5664)),
-        ),
-        SizedBox(height: 10),
-        Text(
-          "Si desea contactarse con nosotros, por favor complete el siguiente formulario",
-          style: TextStyle(fontSize: 16, color: Colors.black54),
-        ),
-        SizedBox(height: 20),
-        _buildFormulario(),
-      ],
+              color: Color(0xFF5C5664),
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            "Si desea contactarse con nosotros, por favor complete el siguiente formulario",
+            style: TextStyle(fontSize: 16, color: Colors.black54),
+          ),
+          SizedBox(height: 20),
+          _buildFormulario(),
+        ],
+      ),
     );
   }
 
   Widget _buildFormulario() {
     return Column(
       children: [
-        _buildTextField("Tu nombre", nombreController),
+        _buildTextField(
+          label: "Tu nombre",
+          controller: nombreController,
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return '❗ Este campo es obligatorio';
+            }
+            return null;
+          },
+        ),
         SizedBox(height: 15),
-        _buildTextField("Tu celular", celularController),
+        _buildTextField(
+          label: "Tu celular",
+          controller: celularController,
+          keyboardType: TextInputType.phone,
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return '❗ Por favor ingresá tu número';
+            }
+            final pattern = RegExp(r'^[0-9]{8,15}$');
+            if (!pattern.hasMatch(value.trim())) {
+              return '❗ Ingresá un número de celular válido';
+            }
+            return null;
+          },
+        ),
         SizedBox(height: 15),
-        _buildTextField("Tu correo electrónico", correoController),
+        _buildTextField(
+          label: "Tu correo electrónico",
+          controller: correoController,
+          keyboardType: TextInputType.emailAddress,
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return '❗ Este campo es obligatorio';
+            }
+            final pattern = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+            if (!pattern.hasMatch(value.trim())) {
+              return '❗ Ingresá un correo válido';
+            }
+            return null;
+          },
+        ),
         SizedBox(height: 15),
-        _buildTextField("Asunto", asuntoController),
+        _buildTextField(
+          label: "Asunto",
+          controller: asuntoController,
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return '❗ Este campo es obligatorio';
+            }
+            return null;
+          },
+        ),
         SizedBox(height: 15),
-        _buildTextField("Tu mensaje (opcional)", mensajeController, isLarge: true),
+        _buildTextField(
+          label: "Tu mensaje (opcional)",
+          controller: mensajeController,
+          isLarge: true,
+        ),
         SizedBox(height: 20),
         _buildSubmitButton(),
       ],
     );
   }
 
-  Widget _buildTextField(String labelText, TextEditingController controller, {bool isLarge = false}) {
+  Widget _buildTextField({
+    required String label,
+    required TextEditingController controller,
+    bool isLarge = false,
+    TextInputType keyboardType = TextInputType.text,
+    String? Function(String?)? validator,
+  }) {
     return TextFormField(
       controller: controller,
       maxLines: isLarge ? 5 : 1,
+      keyboardType: keyboardType,
+      validator: validator,
       decoration: InputDecoration(
-        labelText: labelText,
+        labelText: label,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+        errorStyle: TextStyle(color: Colors.redAccent, fontSize: 14),
       ),
     );
   }
@@ -186,7 +252,8 @@ class _ContactoState extends State<Contacto> {
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xFF5C5664),
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
         child: Text(
           enviando ? "ENVIANDO..." : "ENVIAR",
