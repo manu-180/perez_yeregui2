@@ -13,7 +13,8 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Color(0xFF5C5664),
       
       body: SingleChildScrollView(
-        child: SizedBox(
+        child: Container(
+          color: Color(0xFF5C5664),
           width: double.infinity,
           child: Column(
   crossAxisAlignment: CrossAxisAlignment.start,
