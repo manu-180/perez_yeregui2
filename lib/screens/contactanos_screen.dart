@@ -9,6 +9,7 @@ class ContactanosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [CustomAppBar(),Contacto(), Footer()],

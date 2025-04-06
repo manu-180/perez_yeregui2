@@ -14,7 +14,6 @@ class ServiciosScreen extends StatelessWidget {
         child: Column(
           children: [
             CustomAppBar(),
-            SizedBox(height: 30),
             SegurosWidget(),
             SizedBox(height: 100),
             Footer(),

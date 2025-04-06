@@ -78,12 +78,13 @@ class SegurosWidgetState extends State<SegurosWidget> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-  color: Colors.white, // ✅ fondo blanco para esta sección
+  color: Colors.white,
   width: double.infinity,
   padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04, vertical: 60),
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
+      SizedBox(height: screenWidth * 0.02),
       Text(
         "Conocé nuestros seguros",
         textAlign: TextAlign.start,

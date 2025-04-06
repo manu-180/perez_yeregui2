@@ -85817,7 +85817,7 @@ N(a){var s=null,r=$.aLz(),q=A.aBn(s,s,B.dd,!1,0,s,B.nA,s,s,s,s,s,s,B.Uv,s,s)
 return A.aBm(new A.uR(r,"Perez Yeregui",A.wr(q,B.a9,A.aBP(B.a9,s,s,B.dd),B.dd,s),!1,s),B.S8,t.lu)}}
 A.u1.prototype={
 N(a){var s=null
-return A.hw(s,s,A.ds(A.b8(A.a([new A.eK(s),new A.z9(s),new A.eL(s)],t.p),B.y,B.o,B.n),s))}}
+return A.hw(s,B.l,A.ds(A.b8(A.a([new A.eK(s),new A.z9(s),new A.eL(s)],t.p),B.y,B.o,B.n),s))}}
 A.uw.prototype={
 N(a){var s=4284241508,r=null,q=A.ad(s),p=A.ad(s)
 return A.hw(r,q,A.ds(A.dv(r,A.b8(A.a([new A.eK(r),new A.zU(r),A.au(r,100,r),new A.vR(r),A.au(r,40,r),new A.eL(r)],t.p),B.B,B.o,B.n),B.x,p,r,r,r,r,r,r,r,r,1/0),r))}}
@@ -85856,7 +85856,7 @@ N(a){var s=null
 return A.hw(s,s,A.ds(A.b8(A.a([new A.eK(s),new A.Q1(s),new A.eL(s)],t.p),B.y,B.o,B.n),s))}}
 A.vW.prototype={
 N(a){var s=null
-return A.hw(s,s,A.ds(A.b8(A.a([new A.eK(s),A.au(s,30,s),new A.vR(s),A.au(s,100,s),new A.eL(s)],t.p),B.y,B.o,B.n),s))}}
+return A.hw(s,s,A.ds(A.b8(A.a([new A.eK(s),new A.vR(s),A.au(s,100,s),new A.eL(s)],t.p),B.y,B.o,B.n),s))}}
 A.z9.prototype={
 ak(){var s=$.aE()
 return new A.F8(new A.bz(null,t.am),new A.mr(B.dG,s),new A.mr(B.dG,s),new A.mr(B.dG,s),new A.mr(B.dG,s),new A.mr(B.dG,s))}}
@@ -86318,8 +86318,8 @@ A.vR.prototype={
 ak(){var s=t.N,r=t.z
 return new A.Q4(A.a([A.ay(["icon",B.HU,"title","AUTO","subtitle","Disfrut\xe1 tu auto","ruta","/seguro-automotor"],s,r),A.ay(["icon",B.HO,"title","HOGAR","subtitle","Disfrut\xe1 tu casa","ruta","/seguro-hogar"],s,r),A.ay(["icon",B.HQ,"title","MOVILIDAD","subtitle","Movete tranquilo","ruta","/seguro-movilidad"],s,r),A.ay(["icon",B.HT,"title","MOTO","subtitle","Disfrut\xe1 el camino","ruta","/seguro-moto"],s,r),A.ay(["icon",B.HM,"title","VIDA","subtitle","Viv\xed en paz","ruta","/seguro-vida"],s,r),A.ay(["icon",B.HR,"title","VIDA LABORAL","subtitle","Trabaj\xe1 seguro","ruta","/seguro-vida-laboral"],s,r),A.ay(["icon",B.HV,"title","PYME","subtitle","Tu negocio seguro","ruta","/seguro-pyme"],s,r),A.ay(["icon",B.HN,"title","RESPONSABILIDAD CIVIL","subtitle","Viv\xed sin preocuparte","ruta","/seguro-responsabilidad-civil"],s,r),A.ay(["icon",B.HS,"title","MERCADOS ESPECIALES","subtitle","Proteg\xe9 tu inversi\xf3n","ruta","/seguro-mercados-especiales"],s,r),A.ay(["icon",B.HP,"title","OTROS","subtitle","M\xe1s opciones para vos","ruta","/seguro-otros"],s,r)],t.H7))}}
 A.Q4.prototype={
-N(a){var s=null,r=A.aP(a,s,t.w).w.a.a,q=r*0.04,p=r>1000?r*0.03:r*0.07
-return A.dv(s,A.b8(A.a([A.bx("Conoc\xe9 nuestros seguros",s,s,s,A.af(s,s,A.ad(4284241508),s,s,s,s,s,s,s,s,p,s,s,B.m,s,s,!0,s,s,s,s,s,s,s,s),B.Q,s),A.au(s,r*0.02,s),new A.AS(new A.ai6(this,r),s)],t.p),B.B,B.o,B.n),B.x,B.l,s,s,s,s,s,new A.a6(q,60,q,60),s,s,1/0)}}
+N(a){var s=null,r=A.aP(a,s,t.w).w.a.a,q=r*0.04,p=r*0.02,o=A.au(s,p,s),n=r>1000?r*0.03:r*0.07
+return A.dv(s,A.b8(A.a([o,A.bx("Conoc\xe9 nuestros seguros",s,s,s,A.af(s,s,A.ad(4284241508),s,s,s,s,s,s,s,s,n,s,s,B.m,s,s,!0,s,s,s,s,s,s,s,s),B.Q,s),A.au(s,p,s),new A.AS(new A.ai6(this,r),s)],t.p),B.B,B.o,B.n),B.x,B.l,s,s,s,s,s,new A.a6(q,60,q,60),s,s,1/0)}}
 A.ai6.prototype={
 $2(a,b){var s=null,r=this.b,q=r>1000?5:2
 r*=0.02
