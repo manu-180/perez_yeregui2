@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SeguroMovilidad extends StatelessWidget {
-  const SeguroMovilidad({super.key});
+class SeguroCelulares extends StatelessWidget {
+  const SeguroCelulares({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class SeguroMovilidad extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/bici.png',
+            'assets/images/celular.png',
             width: 500,
             height: 500,
             fit: BoxFit.cover,
@@ -51,7 +51,7 @@ class SeguroMovilidad extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Seguro Integral Ciclistas / Ecomovilidad",
+                "Seguro para Celulares y Notebooks",
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class SeguroMovilidad extends StatelessWidget {
               SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.only(right: size.width * 0.05),
-                child: _buildRichText(),
+                child: _buildTextoSeguro(),
               ),
               SizedBox(height: 50),
             ],
@@ -80,7 +80,7 @@ class SeguroMovilidad extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/bici.png',
+            'assets/images/celular.png',
             width: 300,
             height: 200,
             fit: BoxFit.cover,
@@ -93,15 +93,15 @@ class SeguroMovilidad extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Seguro Integral Ciclistas / Ecomovilidad",
+                "Seguro para Celulares y Notebooks",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Color(0xFF5C5664),
                 ),
               ),
               SizedBox(height: 20),
-              _buildRichText(),
+              _buildTextoSeguro(),
             ],
           ),
         ),
@@ -109,7 +109,7 @@ class SeguroMovilidad extends StatelessWidget {
     );
   }
 
-  Widget _buildRichText() {
+  Widget _buildTextoSeguro() {
     return RichText(
       text: TextSpan(
         style: TextStyle(
@@ -120,35 +120,35 @@ class SeguroMovilidad extends StatelessWidget {
         children: [
           TextSpan(
             text:
-                'Si cuidás el planeta, nosotros te cuidamos a vos y a tu monopatín.\nEcomovilidad es moverse sin dañar el medio ambiente. Movete tranquilo con una cobertura integral, combinando seguros responsabilidad civil, robo, accidentes personales y salud.\n\n',
+                'Asegurá tus dispositivos móviles y portátiles con cobertura completa frente a los riesgos más comunes. Ideal para quienes usan sus equipos para trabajar, estudiar o mantenerse conectados.\n\n',
           ),
           TextSpan(
-            text: 'COBERTURAS PRINCIPALES\n\n',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
+            text: 'Cobertura para Celulares:\n',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextSpan(
             text:
-                '• Robo: en República Argentina. Posibilidad de cubrir por robo accesorios fijos de la bicicleta.\n'
-                '• Accidentes Personales para el ciclista. Incluye muerte accidental, invalidez y asistencia médico farmacéutica.\n'
-                '• Salud: cobertura indemnizatoria que complementa en forma independiente a cualquier otro tipo de prestación similar. En este caso es un seguro de fracturas como consecuencia inmediata de un accidente.\n'
-                '• Responsabilidad Civil del Ciclista: cobertura por daños a terceros como consecuencia del uso de bicicletas. Ámbito de la cobertura: República Argentina. Sin franquicias.\n\n',
+                '• Robo o hurto (con o sin violencia)\n• Daños accidentales por caída, rotura o derrame de líquidos\n• Daños por subas de tensión\n• Protección en el hogar, trabajo y en la vía pública\n• Cobertura nacional e internacional\n• Reparación o reposición según el caso\n\n',
           ),
           TextSpan(
-            text: 'Asegurar:\n\n',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
+            text: 'Cobertura para Notebooks:\n',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextSpan(
             text:
-                '• BICICLETAS ALTA-MEDIA GAMA\n'
-                '• BICICLETAS ELECTRICAS\n'
-                '• MONOPATINES ELECTRICOS\n'
-                '• MOTOS ELECTRICAS QUE NO PUEDEN PATENTARSE\n',
+                '• Robo o hurto\n• Daños accidentales (caídas, golpes, líquidos)\n• Daños eléctricos\n• Rotura de pantalla\n• Daños durante traslado\n• Asistencia técnica\n\n',
+          ),
+          TextSpan(
+            text: 'Beneficios adicionales:\n',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          TextSpan(
+            text:
+                '• Gestión de siniestros 100% online\n• Atención personalizada ante cualquier incidente\n• Asistencia las 24 hs\n• Posibilidad de asegurar múltiples equipos en un mismo contrato\n\n',
+          ),
+          TextSpan(
+            text:
+                'Contratá hoy tu seguro de celular o notebook con Seguros Pérez Yeregui & Asociados. Escribinos al +54 911 6927-0009 o por mail a seguros@perezyeregui.com.ar y obtené tu cotización en minutos.',
           ),
         ],
       ),

@@ -41,7 +41,7 @@ class SeguroOtros extends StatelessWidget {
           child: Image.asset(
             'assets/images/otros.png',
             width: 500,
-            height: 400,
+            height: 500,
             fit: BoxFit.cover,
           ),
         ),

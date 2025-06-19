@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'dart:async';
+
 
 class Encabezado extends StatefulWidget {
   const Encabezado({super.key});
@@ -182,6 +184,10 @@ class EncabezadoState extends State<Encabezado>
                     ),
                   ],
                 ),
+                SizedBox(height: 30),
+const SeguroCelularCard(),
+
+
               ],
             ),
           ),
@@ -196,8 +202,10 @@ class EncabezadoState extends State<Encabezado>
               child: ClipOval(
                 child: Image.asset(
                   'assets/images/familia.png',
-                  width: size.width * 0.35,
-                  height: size.width * 0.35,
+                  // width: size.width * 0.35,
+                  // height: size.width * 0.35,
+                   width: 500,
+                  height: 500,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -295,18 +303,122 @@ class EncabezadoState extends State<Encabezado>
             ),
           ),
         ),
+        SizedBox(height: 30),
+const SeguroCelularCard(),
+
+
 
         SizedBox(height: 40), // Espacio adicional antes de la imagen
         // Imagen circular al final
         ClipOval(
           child: Image.asset(
             'assets/images/familia.png',
-            width: size.width> 1000? size.width * 0.25:size.width * 0.6, // Tamaño más grande en móvil
-            height: size.width> 1000? size.width * 0.25:size.width * 0.6,
+            // width: size.width> 1000? size.width * 0.25:size.width * 0.6, // Tamaño más grande en móvil
+            // height: size.width> 1000? size.width * 0.25:size.width * 0.6,
+            width: 250, // Tamaño más grande en móvil
+            height: 250,
             fit: BoxFit.cover,
           ),
         ),
       ],
+    );
+  }
+}
+
+class SeguroCelularCard extends StatefulWidget {
+  const SeguroCelularCard({super.key});
+
+  @override
+  State<SeguroCelularCard> createState() => _SeguroCelularCardState();
+}
+
+class _SeguroCelularCardState extends State<SeguroCelularCard>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _opacity;
+  bool _isHovered = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 900),
+    )..repeat(reverse: true);
+
+    _opacity = Tween<double>(begin: 1.0, end: 0.4).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isWideScreen = screenWidth > 1000;
+
+    return FadeTransition(
+      opacity: _opacity,
+      child: GestureDetector(
+        onTap: () => context.go('/seguro-celulares'),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          onEnter: (_) => setState(() => _isHovered = true),
+          onExit: (_) => setState(() => _isHovered = false),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            transform: (_isHovered ? (Matrix4.identity()..scale(1.03)) : Matrix4.identity()),
+            curve: Curves.easeOut,
+            width: isWideScreen ? screenWidth * 0.28 : screenWidth * 0.6,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: _isHovered ? Colors.black26 : Colors.black12,
+                  blurRadius: _isHovered ? 16 : 8,
+                  offset: Offset(0, 4),
+                )
+              ],
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Card(
+              elevation: 8,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              color: _isHovered ? const Color(0xFFc79d60) : const Color(0xFFD1AD7C),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Icon(
+                      Icons.campaign,
+                      size: 28,
+                      color: _isHovered ? const Color.fromARGB(255, 184, 184, 40) : Colors.white,
+                    ),
+                    const SizedBox(width: 12),
+                    const Flexible(
+                      child: Text(
+                        '¡Nuevo! Seguro para celulares y notebooks',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        softWrap: true,
+                        overflow: TextOverflow.visible,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

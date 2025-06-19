@@ -41,7 +41,7 @@ class SeguroAutomotor extends StatelessWidget {
           child: Image.asset(
             'assets/images/auto.png',
             width: 500,
-            height: 400,
+            height: 500,
             fit: BoxFit.cover,
           ),
         ),
@@ -120,13 +120,13 @@ class SeguroAutomotor extends StatelessWidget {
         children: [
           TextSpan(
             text:
-                'Asegura tu auto con el respaldo de la compañía #1 y con nuestro asesoramiento Seguros Perez Yeregui & Asociados. Vas a recibir mejor asesoramiento y acompañamiento y en caso de siniestro, nos vamos a ocupar de todos los trámites.\n\n'
+                'Asegura tu auto con el respaldo de la compañía #1 y con nuestro asesoramiento Seguros Perez Yeregui & Asociados. Vas a recibir el mejor asesoramiento y acompañamiento y en caso de siniestro, nos vamos a ocupar de todos los trámites.\n'
                 'Solicitar cotización por WhatsApp al +54 911 6927-0009 o por mail a seguros@perezyeregui.com.ar\n\n',
           ),
           // NEGRITA 1
           TextSpan(
             text:
-                '• Cobertura Todo Riesgo con franquicia fija y % variable sobre suma asegurada\n\n',
+                '• Cobertura Todo Riesgo con franquicia fija y/o % variable sobre suma asegurada\n',
             style: TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.black,
@@ -139,7 +139,7 @@ class SeguroAutomotor extends StatelessWidget {
           ),
           // NEGRITA 2
           TextSpan(
-            text: '• Cobertura Tercero Completo – C Full\n\n',
+            text: '• Cobertura Tercero Completo – C Full\n',
             style: TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.black,
@@ -152,7 +152,7 @@ class SeguroAutomotor extends StatelessWidget {
           ),
           // NEGRITA 3
           TextSpan(
-            text: '• Los autos clásicos también tienen su cobertura\n\n',
+            text: '• Los autos clásicos también tienen su cobertura\n',
             style: TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.black,
@@ -166,7 +166,7 @@ class SeguroAutomotor extends StatelessWidget {
                 'Los alcances de la cobertura incluyen al uso específico o participación en eventos particulares, exposiciones o carreras de regularidad (no de velocidad).\n\n'),
                 
                 TextSpan(
-            text:'Seguro para Autos Clásicos incluye:\n\n', style: TextStyle(
+            text:'Seguro para Autos Clásicos incluye:\n', style: TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.black,
 ),),

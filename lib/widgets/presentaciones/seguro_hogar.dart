@@ -41,7 +41,7 @@ class SeguroHogar extends StatelessWidget {
           child: Image.asset(
             'assets/images/hogar.png',
             width: 500,
-            height: 400,
+            height: 500,
             fit: BoxFit.cover,
           ),
         ),

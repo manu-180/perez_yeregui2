@@ -39,9 +39,9 @@ class SeguroResponsabilidadCivil extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/civil.png',
+            'assets/images/medicoseguros.png',
             width: 500,
-            height: 400,
+            height: 500,
             fit: BoxFit.cover,
           ),
         ),
@@ -79,10 +79,10 @@ class SeguroResponsabilidadCivil extends StatelessWidget {
                       TextSpan(
                         text:
                             'Es muy importante conocer los alcances y responsabilidades que implica la actividad profesional. Y qué tipo de seguro la ampara.\n'
-                            'Cuando hablamos de responsabilidad civil, nos referimos a la obligación que una persona tiene de reparar un daño causado a otra, a través del pago de un resarcimiento o indemnización.\n\n'
+                            'Cuando hablamos de responsabilidad civil, nos referimos a la obligación que una persona tiene de reparar un daño causado a otra, a través del pago de un resarcimiento o indemnización.\n'
                             'A través de este tipo de cobertura, pueden hacer frente a los daños materiales o personales que hayan causado a sus clientes, mediante el ejercicio de su profesión. Ya sea de forma involuntaria o por acción u omisión.\n\n'
-                            'Este producto permite que los profesionales puedan asegurar su patrimonio frente a reclamos de terceros que deriven del desempeño de su actividad profesional.  La amplia gama de coberturas incluye a:\n\n'
-                            '• Contadores\n• Abogados\n• Profesionales de la Salud (Médicos, Odontólogos, Bioquímicos, Farmacéuticos, Psicólogos, Kinesiólogos, Técnicos y Auxiliares de Medicina, entre otros)\n• Productores de Seguros\n• Administradores de Consorcios\n• Arquitectos\n• Ingenieros\n• Locadores de Inmuebles\n• Sujetos del GNC\n\n'
+                            'Este producto permite que los profesionales puedan asegurar su patrimonio frente a reclamos de terceros que deriven del desempeño de su actividad profesional.  La amplia gama de coberturas incluye a:\n'
+                            '• Contadores\n• Abogados\n• Profesionales de la Salud (Médicos, Odontólogos, Bioquímicos, Farmacéuticos, Psicólogos, Kinesiólogos, Técnicos y Auxiliares de Medicina, entre otros)\n• Productores de Seguros\n• Administradores de Consorcios\n• Arquitectos\n• Ingenieros\n• Locadores de Inmuebles\n• Sujetos del GNC\n'
                             'La asistencia, entre otros beneficios, incluye Asesoramiento, Asistencia Legal y Defensa en Juicio.',
                       ),
                     ],
@@ -106,7 +106,7 @@ class SeguroResponsabilidadCivil extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/civil.png',
+            'assets/images/medicoseguros.png',
             width: 300,
             height: 200,
             fit: BoxFit.cover,

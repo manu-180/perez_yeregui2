@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:perezyeregui/utils/launch_instagram_stub.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatefulWidget {
   const Footer({super.key});
@@ -26,17 +27,14 @@ class FooterState extends State<Footer> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      color: Color(0xFF5C5664),
-      padding: EdgeInsets.all(20),
+      color: const Color(0xFF5C5664),
+      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          // Diseño responsivo para las columnas
           screenWidth > 1000
-              ? _buildDesktopLayout(context) // Diseño para pantallas grandes
-              : _buildMobileLayout(context), // Diseño para pantallas pequeñas
-
-          // Derechos de Autor
-          SizedBox(height: 20),
+              ? _buildDesktopLayout(context)
+              : _buildMobileLayout(context),
+          const SizedBox(height: 20),
           Text(
             "© 2022 PEREZ YEREGUI & ASOCIADOS. Todos los derechos reservados.",
             style: TextStyle(
@@ -49,47 +47,58 @@ class FooterState extends State<Footer> {
     );
   }
 
-  void openInstagram() async {
-  const url = 'https://www.instagram.com/segurosperezyeregui/?utm_source=qr&igsh=MTNiamFxYnoyaWQxaA%3D%3D#';
+  void openInstagram() {
+    const url =
+        'https://www.instagram.com/segurosperezyeregui/?utm_source=qr&igsh=MTNiamFxYnoyaWQxaA%3D%3D#';
+    openInstagramWeb(url);
+  }
 
-  openInstagramWeb(url); // Esta función solo abrirá en web
-}
-
-  // Diseño para pantallas grandes (> 1000 px)
   Widget _buildDesktopLayout(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        // Primera Columna (Logo y Eslogan)
-        Container(
-          color: Color(0xFF5C5664), // Fondo azul oscuro
-          padding: EdgeInsets.all(20),
-          child: GestureDetector(
-            onTap: () => context.go("/"),
-            child: Image.asset(
-              'assets/icon/logo-perez-yeregui.png',
-              height: 130,
-            ),
+        MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Row(
+            children: [
+              GestureDetector(
+                onTap: () => context.go("/"),
+                child: Image.asset(
+                  'assets/icon/logo-perez-yeregui.png',
+                  height: 130,
+                ),
+              ),
+              const SizedBox(width: 12),
+              GestureDetector(
+                onTap: openInstagram,
+                child: SvgPicture.asset(
+                  'assets/icon/iglogo.svg',
+                  height: 50,
+                ),
+              ),
+            ],
           ),
         ),
 
-        // Segunda Columna (Listado de Servicios)
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: services.map((service) {
             int index = services.indexOf(service);
             return InkWell(
               onTap: () {
-                // Aquí puedes agregar la lógica para cada opción
                 switch (service) {
                   case "Inicio":
                     context.go("/");
+                    break;
                   case "Quienes Somos":
                     context.go("/quienes-somos");
+                    break;
                   case "Servicios":
                     context.go("/servicios");
+                    break;
                   case "Contacto":
                     context.go("/contacto");
+                    break;
                 }
               },
               onHover: (isHovered) {
@@ -98,21 +107,23 @@ class FooterState extends State<Footer> {
                 });
               },
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: 5),
+                margin: const EdgeInsets.symmetric(vertical: 5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       service,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14,
                       ),
                     ),
                     AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
-                      width: hoverIndex == index ? 100 : 0,
+                      duration: const Duration(milliseconds: 200),
                       height: 2,
+                      width: hoverIndex == index
+                          ? _textWidth(service, context)
+                          : 0,
                       color: Colors.white,
                     ),
                   ],
@@ -122,76 +133,116 @@ class FooterState extends State<Footer> {
           }).toList(),
         ),
 
-        // Tercera Columna (Información de Contacto)
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildContactInfo(Icons.phone, "+54 11 1234-5678"),
-            _buildContactInfo(Icons.email, "seguros@perezyeregui.com.ar"),
+            _buildContactInfo(FontAwesomeIcons.whatsapp, "116927-0009",
+                () => launchUrl(Uri.parse("https://wa.me/541169270009"))),
+            _buildContactInfo(Icons.email, "seguros@perezyeregui.com.ar",
+                () => launchUrl(Uri.parse("mailto:seguros@perezyeregui.com.ar"))),
             _buildContactInfo(
-                Icons.location_on, "Av. Corrientes 1234, CABA, Argentina"),
-            _buildContactInfo(
-                Icons.access_time, "Lunes a Viernes, 9:00 AM - 6:00 PM"),
+                Icons.location_on,
+                "Echeverría 1208, Pacheco, BsAs",
+                () => launchUrl(Uri.parse(
+                    "https://www.google.com/maps/search/?api=1&query=Echeverría+1208,+Pacheco,+BsAs"))),
+            _buildHorarioInfo(),
           ],
         ),
       ],
     );
   }
 
-  // Diseño para pantallas pequeñas (<= 1000 px)
   Widget _buildMobileLayout(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Primera Columna (Logo y Eslogan)
-        Container(
-          color: Color(0xFF5C5664), // Fondo azul oscuro
-          padding: EdgeInsets.all(20),
-          child: GestureDetector(
-            onTap: () => context.go("/"),
-            child: Image.asset(
-              'assets/icon/logo-perez-yeregui.png',
-              height: 120,
-            ),
+        GestureDetector(
+          onTap: () => context.go("/"),
+          child: Image.asset(
+            'assets/icon/logo-perez-yeregui.png',
+            height: 120,
           ),
         ),
-        SizedBox(height: 15),
-
-        // Segunda Columna (Listado de Servicios)
-
-        // Tercera Columna (Información de Contacto)
+        const SizedBox(height: 15),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _buildContactInfo(Icons.phone, "+54 11 1234-5678"),
-            _buildContactInfo(Icons.email, "seguros@perezyeregui.com.ar"),
+            _buildContactInfo(FontAwesomeIcons.whatsapp, "1169270009",
+                () => launchUrl(Uri.parse("https://wa.me/541169270009"))),
+            _buildContactInfo(Icons.email, "seguros@perezyeregui.com.ar",
+                () => launchUrl(Uri.parse("mailto:seguros@perezyeregui.com.ar"))),
             _buildContactInfo(
-                Icons.location_on, "Av. Corrientes 1234, CABA, Argentina"),
-            _buildContactInfo(
-                Icons.access_time, "Lunes a Viernes, 9:00 AM - 6:00 PM"),
+                Icons.location_on,
+                "Echeverría 12108, Pacheco, BsAs",
+                () => launchUrl(Uri.parse(
+                    "https://www.google.com/maps/search/?api=1&query=Echeverría+12108,+Pacheco,+BsAs"))),
+            _buildHorarioInfo(),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildContactInfo(IconData icon, String text) {
+  Widget _buildContactInfo(IconData icon, String text, VoidCallback? onTap) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Icon(icon, color: Colors.white, size: 16),
+            const SizedBox(width: 10),
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHorarioInfo() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, color: Colors.white, size: 16),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Icon(Icons.access_time, color: Colors.white, size: 16),
           SizedBox(width: 10),
-          Text(
-            text,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 14,
-            ),
-          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Lunes a Viernes, 9:00 AM - 6:00 PM",
+                style: TextStyle(color: Colors.white, fontSize: 14),
+              ),
+              Text(
+                "Sábado, de 9:00 a 13:00",
+                style: TextStyle(color: Colors.white, fontSize: 14),
+              ),
+            ],
+          )
         ],
       ),
     );
+  }
+
+  double _textWidth(String text, BuildContext context) {
+    final textPainter = TextPainter(
+      text: TextSpan(
+        text: text,
+        style: const TextStyle(
+          fontSize: 14,
+        ),
+      ),
+      maxLines: 1,
+      textDirection: TextDirection.ltr,
+    )..layout();
+    return textPainter.width;
   }
 }

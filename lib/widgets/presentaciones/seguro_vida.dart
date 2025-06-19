@@ -39,9 +39,9 @@ class SeguroVida extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/vida.png',
+            'assets/images/familiaseguros.png',
             width: 500,
-            height: 400,
+            height: 500,
             fit: BoxFit.cover,
           ),
         ),
@@ -80,7 +80,7 @@ class SeguroVida extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/vida.png',
+            'assets/images/familiaseguros.png',
             width: 300,
             height: 200,
             fit: BoxFit.cover,
@@ -123,7 +123,7 @@ class SeguroVida extends StatelessWidget {
                 'Brinda una protección para sus seres queridos ante una pérdida repentina del sustento familiar, como así también mitigar los efectos producidos ante una invalidez y/u otras enfermedades.\n\n',
           ),
           TextSpan(
-            text: '•\tIndividual y Colectivo\n\n',
+            text: '•\tIndividual y Colectivo\n',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextSpan(
@@ -131,13 +131,13 @@ class SeguroVida extends StatelessWidget {
                 'Brinda una protección para sus seres queridos ante una pérdida repentina del sustento familiar, como así también mitigar los efectos producidos ante una invalidez y/u otras enfermedades.\n\n',
           ),
           TextSpan(
-            text: '•\tSalud\n\n',
+            text: '•\tSalud\n',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextSpan(
             text:
                 'Cobertura indemnizatoria / ayuda económica que puede emplearse para solventar el tratamiento de una enfermedad grave, lesión o intervención quirúrgica que se pudiera presentar.\n'
-                'Protección completa y adaptable a la necesidad de cada persona. Se puede elegir libremente una, varias o todas las coberturas gracias a la flexibilidad de este producto.\n\n'
+                'Protección completa y adaptable a la necesidad de cada persona. Se puede elegir libremente una, varias o todas las coberturas gracias a la flexibilidad de este producto.\n'
                 '•\tDiagnóstico por enfermedades.\n'
                 '•\tIntervenciones Quirurgicas.\n'
                 '•\tTrasplantes.\n'
@@ -146,7 +146,7 @@ class SeguroVida extends StatelessWidget {
           ),
           TextSpan(
             text:
-                'Además cuenta con el servicio prestacional para Urgencias y Emergencias médicas:\n\n',
+                'Además cuenta con el servicio prestacional para Urgencias y Emergencias médicas:\n',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextSpan(
@@ -159,10 +159,7 @@ class SeguroVida extends StatelessWidget {
                 '•\tAsistencia en viajes.\n'
                 '•\tDescuento en farmacias de medicamentos recetados.\n',
           ),
-          TextSpan(
-            text: '•\tSeguro de Viajero – Asistencia en viaje\n',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-          ),
+       
           TextSpan(
             text: '•\tSeguro de Sepelio\n\n',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),

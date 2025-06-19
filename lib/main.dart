@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const systemOverlayStyle = SystemUiOverlayStyle(
-      statusBarColor: Color(0xFF5C5664), // <- color exacto
+      statusBarColor: Color(0xFF5C5664), 
       statusBarIconBrightness: Brightness.light,
       systemNavigationBarColor: Color(0xFF5C5664),
       systemNavigationBarIconBrightness: Brightness.light,

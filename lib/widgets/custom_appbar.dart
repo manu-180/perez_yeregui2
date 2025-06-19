@@ -55,24 +55,27 @@ void openInstagram() async {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Logo + Instagram
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () => context.go("/"),
-                      child: Image.asset(
-                        'assets/icon/logo-perez-yeregui.png',
-                        height: 130,
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => context.go("/"),
+                        child: Image.asset(
+                          'assets/icon/logo-perez-yeregui.png',
+                          height: 130,
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 12),
-                    GestureDetector(
-                      onTap: openInstagram,
-                      child: SvgPicture.asset(
-                        'assets/icon/iglogo.svg',
-                        height: 50,
+                      const SizedBox(width: 12),
+                      GestureDetector(
+                        onTap: openInstagram,
+                        child: SvgPicture.asset(
+                          'assets/icon/iglogo.svg',
+                          height: 50,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 // Menú
                 Row(children: _buildNavBarItems()),
