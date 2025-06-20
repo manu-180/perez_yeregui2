@@ -87,7 +87,7 @@ class SeguroOtros extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                            'Se cubre la maquinaria y equipos a partir del momento en que se encuentre efectuando su función específica incluyendo su eventual traslado desde o hacia el lugar de trabajo, depósito u obrador en el ámbito de la República Argentina, como consecuencia de\n\n• Incendio\n• Accidente\n• Robo\n• Hurto\n\n',
+                            'Se cubre la maquinaria y equipos a partir del momento en que se encuentre efectuando su función específica incluyendo su eventual traslado desde o hacia el lugar de trabajo, depósito u obrador en el ámbito de la República Argentina, como consecuencia de:\n• Incendio\n• Accidente\n• Robo\n• Hurto\n\n',
                       ),
                       TextSpan(
                         text: 'Avería de Maquinarias\n',
@@ -167,7 +167,7 @@ class SeguroOtros extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                            'Se cubre la maquinaria y equipos a partir del momento en que se encuentre efectuando su función específica incluyendo su eventual traslado desde o hacia el lugar de trabajo, depósito u obrador en el ámbito de la República Argentina, como consecuencia de\n\n• Incendio\n• Accidente\n• Robo\n• Hurto\n\n',
+                            'Se cubre la maquinaria y equipos a partir del momento en que se encuentre efectuando su función específica incluyendo su eventual traslado desde o hacia el lugar de trabajo, depósito u obrador en el ámbito de la República Argentina, como consecuencia de:\n• Incendio\n• Accidente\n• Robo\n• Hurto\n\n',
                       ),
                       TextSpan(
                         text: 'Avería de Maquinarias\n',

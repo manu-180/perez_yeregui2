@@ -70,7 +70,7 @@ class SeguroResponsabilidadCivil extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: '¿A qué se le llama Seguro de Responsabilidad Civil Profesional?\n\n',
+                        text: '¿A qué se le llama Seguro de Responsabilidad Civil Profesional?\n',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
@@ -134,24 +134,24 @@ class SeguroResponsabilidadCivil extends StatelessWidget {
                     color: Colors.black87,
                     height: 1.5,
                   ),
-                  children: [
-                    TextSpan(
-                      text: '¿A qué se le llama Seguro de Responsabilidad Civil Profesional?\n\n',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                   children: [
+                      TextSpan(
+                        text: '¿A qué se le llama Seguro de Responsabilidad Civil Profesional?\n',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                    TextSpan(
-                      text:
-                          'Es muy importante conocer los alcances y responsabilidades que implica la actividad profesional. Y qué tipo de seguro la ampara.\n'
-                          'Cuando hablamos de responsabilidad civil, nos referimos a la obligación que una persona tiene de reparar un daño causado a otra, a través del pago de un resarcimiento o indemnización.\n\n'
-                          'A través de este tipo de cobertura, pueden hacer frente a los daños materiales o personales que hayan causado a sus clientes, mediante el ejercicio de su profesión. Ya sea de forma involuntaria o por acción u omisión.\n\n'
-                          'Este producto permite que los profesionales puedan asegurar su patrimonio frente a reclamos de terceros que deriven del desempeño de su actividad profesional.  La amplia gama de coberturas incluye a:\n\n'
-                          '• Contadores\n• Abogados\n• Profesionales de la Salud (Médicos, Odontólogos, Bioquímicos, Farmacéuticos, Psicólogos, Kinesiólogos, Técnicos y Auxiliares de Medicina, entre otros)\n• Productores de Seguros\n• Administradores de Consorcios\n• Arquitectos\n• Ingenieros\n• Locadores de Inmuebles\n• Sujetos del GNC\n\n'
-                          'La asistencia, entre otros beneficios, incluye Asesoramiento, Asistencia Legal y Defensa en Juicio.',
-                    ),
-                  ],
+                      TextSpan(
+                        text:
+                            'Es muy importante conocer los alcances y responsabilidades que implica la actividad profesional. Y qué tipo de seguro la ampara.\n'
+                            'Cuando hablamos de responsabilidad civil, nos referimos a la obligación que una persona tiene de reparar un daño causado a otra, a través del pago de un resarcimiento o indemnización.\n'
+                            'A través de este tipo de cobertura, pueden hacer frente a los daños materiales o personales que hayan causado a sus clientes, mediante el ejercicio de su profesión. Ya sea de forma involuntaria o por acción u omisión.\n\n'
+                            'Este producto permite que los profesionales puedan asegurar su patrimonio frente a reclamos de terceros que deriven del desempeño de su actividad profesional.  La amplia gama de coberturas incluye a:\n'
+                            '• Contadores\n• Abogados\n• Profesionales de la Salud (Médicos, Odontólogos, Bioquímicos, Farmacéuticos, Psicólogos, Kinesiólogos, Técnicos y Auxiliares de Medicina, entre otros)\n• Productores de Seguros\n• Administradores de Consorcios\n• Arquitectos\n• Ingenieros\n• Locadores de Inmuebles\n• Sujetos del GNC\n'
+                            'La asistencia, entre otros beneficios, incluye Asesoramiento, Asistencia Legal y Defensa en Juicio.',
+                      ),
+                    ],
                 ),
               ),
             ],

@@ -147,7 +147,7 @@ void openInstagram() async {
               Text(
                 item,
                 style: GoogleFonts.montserrat(
-                  fontSize: 14,
+                  fontSize: 18,
                   fontWeight: FontWeight.w500,
                   color: _hoveredItem == item ? Colors.amber : Colors.white,
                 ),

@@ -100,7 +100,7 @@ class SeguroHogar extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               _buildRichText(),
             ],
           ),
@@ -119,7 +119,7 @@ class SeguroHogar extends StatelessWidget {
         ),
         children: [
           TextSpan(
-            text: '\n\nCOBERTURAS PARA EL HOGAR\n\n',
+            text: 'COBERTURAS PARA EL HOGAR\n',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextSpan(
@@ -133,7 +133,7 @@ class SeguroHogar extends StatelessWidget {
                 '• Pérdida de alimentos refrigerados.\n\n',
           ),
           TextSpan(
-            text: 'COBERTURAS FUERA DEL HOGAR\n\n',
+            text: 'COBERTURAS FUERA DEL HOGAR\n',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextSpan(
@@ -144,7 +144,7 @@ class SeguroHogar extends StatelessWidget {
                 '• Bienes recientemente adquiridos: ¡asegurado ni bien salís de la tienda!\n\n',
           ),
           TextSpan(
-            text: 'ADICIONALES\n\n',
+            text: 'ADICIONALES\n',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextSpan(

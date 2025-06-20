@@ -83,13 +83,13 @@ class SeguroVidaLaboral extends StatelessWidget {
                         text: '• ',
                       ),
                       TextSpan(
-                        text: 'Accidentes Personales\n\n',
+                        text: 'Accidentes Personales\n',
                         style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
                       ),
                       TextSpan(
                         text:
                             'Seguro que brinda protección al asegurado en caso de muerte o incapacidades permanentes sean totales o parciales, sufridas en ocasión de un accidente.\n'
-                            'Destinado a personas que por su ocupación o profesión independiente realizan actividades laborales de forma autónoma.  También pueden contratar estas pólizas aquellas personas que tengan  personal a su cargo en forma transitoria. Cubre a los asegurados durante la actividad laboral y el trayecto in itinere (Se encuentra incluido el uso de moto durante el trayecto in itinere).\n\n'
+                            'Destinado a personas que por su ocupación o profesión independiente realizan actividades laborales de forma autónoma.  También pueden contratar estas pólizas aquellas personas que tengan  personal a su cargo en forma transitoria. Cubre a los asegurados durante la actividad laboral y el trayecto in itinere (Se encuentra incluido el uso de moto durante el trayecto in itinere).\n'
                             '• Muerte accidental\n'
                             '• Invalidez total y/o parcial permanente\n'
                             '• Asistencia médica prestacional\n'
@@ -145,35 +145,35 @@ class SeguroVidaLaboral extends StatelessWidget {
                     color: Color(0xFF5C5664),
                     height: 1.5,
                   ),
-                  children: [
-                    TextSpan(
-                      text: '• ',
-                    ),
-                    TextSpan(
-                      text: 'ART',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-                    ),
-                    TextSpan(
-                      text: ' - Seguros de Riesgo de Trabajo\n\n',
-                    ),
-                    TextSpan(
-                      text: '• ',
-                    ),
-                    TextSpan(
-                      text: 'Accidentes Personales\n\n',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-                    ),
-                    TextSpan(
-                      text:
-                          'Seguro que brinda protección al asegurado en caso de muerte o incapacidades permanentes sean totales o parciales, sufridas en ocasión de un accidente.\n'
-                          'Destinado a personas que por su ocupación o profesión independiente realizan actividades laborales de forma autónoma.  También pueden contratar estas pólizas aquellas personas que tengan  personal a su cargo en forma transitoria. Cubre a los asegurados durante la actividad laboral y el trayecto in itinere (Se encuentra incluido el uso de moto durante el trayecto in itinere).\n\n'
-                          '• Muerte accidental\n'
-                          '• Invalidez total y/o parcial permanente\n'
-                          '• Asistencia médica prestacional\n'
-                          '• Renta diaria por internación\n'
-                          '• Reintegro de gastos de sepelio\n',
-                    ),
-                  ],
+                   children: [
+                      TextSpan(
+                        text: '• ',
+                      ),
+                      TextSpan(
+                        text: 'ART',
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                      ),
+                      TextSpan(
+                        text: ' - Seguros de Riesgo de Trabajo\n\n',
+                      ),
+                      TextSpan(
+                        text: '• ',
+                      ),
+                      TextSpan(
+                        text: 'Accidentes Personales\n',
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                      ),
+                      TextSpan(
+                        text:
+                            'Seguro que brinda protección al asegurado en caso de muerte o incapacidades permanentes sean totales o parciales, sufridas en ocasión de un accidente.\n'
+                            'Destinado a personas que por su ocupación o profesión independiente realizan actividades laborales de forma autónoma.  También pueden contratar estas pólizas aquellas personas que tengan  personal a su cargo en forma transitoria. Cubre a los asegurados durante la actividad laboral y el trayecto in itinere (Se encuentra incluido el uso de moto durante el trayecto in itinere).\n'
+                            '• Muerte accidental\n'
+                            '• Invalidez total y/o parcial permanente\n'
+                            '• Asistencia médica prestacional\n'
+                            '• Renta diaria por internación\n'
+                            '• Reintegro de gastos de sepelio\n',
+                      ),
+                    ],
                 ),
               )
             ],

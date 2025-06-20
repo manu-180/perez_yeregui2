@@ -131,7 +131,7 @@ class SegurosMoto extends StatelessWidget {
                 'Pensamos en tus necesidades y diseñamos un producto para que puedas disfrutar de tu moto de alta cilindrada.\n\n',
           ),
           TextSpan(
-            text: 'Cobertura:\n\n',
+            text: 'Cobertura:\n',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,

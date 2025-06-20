@@ -157,11 +157,11 @@ class SeguroVida extends StatelessWidget {
                 '•\tAsistencia a la tercera edad.\n'
                 '•\tAsistencia por urgencias odontológicas.\n'
                 '•\tAsistencia en viajes.\n'
-                '•\tDescuento en farmacias de medicamentos recetados.\n',
+                '•\tDescuento en farmacias de medicamentos recetados.\n\n',
           ),
        
           TextSpan(
-            text: '•\tSeguro de Sepelio\n\n',
+            text: '•\tSeguro de Sepelio\n',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextSpan(

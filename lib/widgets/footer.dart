@@ -156,14 +156,26 @@ class FooterState extends State<Footer> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        GestureDetector(
-          onTap: () => context.go("/"),
-          child: Image.asset(
-            'assets/icon/logo-perez-yeregui.png',
-            height: 120,
+       Row(
+            children: [
+              GestureDetector(
+                onTap: () => context.go("/"),
+                child: Image.asset(
+                  'assets/icon/logo-perez-yeregui.png',
+                  height: 130,
+                ),
+              ),
+              const SizedBox(width: 12),
+              GestureDetector(
+                onTap: openInstagram,
+                child: SvgPicture.asset(
+                  'assets/icon/iglogo.svg',
+                  height: 50,
+                ),
+              ),
+            ],
           ),
-        ),
-        const SizedBox(height: 15),
+        const SizedBox(height: 30),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

@@ -198,14 +198,14 @@ const SeguroCelularCard(),
           child: Align(
             alignment: Alignment.centerRight,
             child: Padding(
-              padding: EdgeInsets.only(right: size.width * 0.1),
+              padding: EdgeInsets.only(right: size.width * 0.007),
               child: ClipOval(
                 child: Image.asset(
                   'assets/images/familia.png',
-                  // width: size.width * 0.35,
-                  // height: size.width * 0.35,
-                   width: 500,
-                  height: 500,
+                  width: size.width * 0.35,
+                  height: size.width * 0.35,
+                  //  width: 500,
+                  // height: 500,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -363,7 +363,7 @@ class _SeguroCelularCardState extends State<SeguroCelularCard>
     final isWideScreen = screenWidth > 1000;
 
     return FadeTransition(
-      opacity: _opacity,
+       opacity: _isHovered ? const AlwaysStoppedAnimation(1.0) : _opacity,
       child: GestureDetector(
         onTap: () => context.go('/seguro-celulares'),
         child: MouseRegion(
@@ -374,7 +374,7 @@ class _SeguroCelularCardState extends State<SeguroCelularCard>
             duration: const Duration(milliseconds: 300),
             transform: (_isHovered ? (Matrix4.identity()..scale(1.03)) : Matrix4.identity()),
             curve: Curves.easeOut,
-            width: isWideScreen ? screenWidth * 0.28 : screenWidth * 0.6,
+            width: isWideScreen ? screenWidth * 0.3 : screenWidth * 0.6,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(

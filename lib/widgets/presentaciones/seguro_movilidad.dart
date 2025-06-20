@@ -123,7 +123,7 @@ class SeguroMovilidad extends StatelessWidget {
                 'Si cuidás el planeta, nosotros te cuidamos a vos y a tu monopatín.\nEcomovilidad es moverse sin dañar el medio ambiente. Movete tranquilo con una cobertura integral, combinando seguros responsabilidad civil, robo, accidentes personales y salud.\n\n',
           ),
           TextSpan(
-            text: 'COBERTURAS PRINCIPALES\n\n',
+            text: 'COBERTURAS PRINCIPALES\n',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
@@ -137,7 +137,7 @@ class SeguroMovilidad extends StatelessWidget {
                 '• Responsabilidad Civil del Ciclista: cobertura por daños a terceros como consecuencia del uso de bicicletas. Ámbito de la cobertura: República Argentina. Sin franquicias.\n\n',
           ),
           TextSpan(
-            text: 'Asegurar:\n\n',
+            text: 'Asegurar:\n',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
