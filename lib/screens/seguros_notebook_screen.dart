@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:perezyeregui/widgets/custom_appbar.dart';
 import 'package:perezyeregui/widgets/footer.dart';
 import 'package:perezyeregui/widgets/presentaciones/seguro_automotor.dart';
-import 'package:perezyeregui/widgets/presentaciones/seguro_tecnico.dart';
+import 'package:perezyeregui/widgets/presentaciones/seguro_celulares.dart';
+import 'package:perezyeregui/widgets/presentaciones/seguro_notebook.dart';
+import 'package:perezyeregui/widgets/presentaciones/seguro_pyme.dart';
 
-class SegurosOtrosScreen extends StatelessWidget {
-  const SegurosOtrosScreen({super.key});
+class SegurosNotebookScreen extends StatelessWidget {
+  const SegurosNotebookScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class SegurosOtrosScreen extends StatelessWidget {
           child: Column(
             children: [
               CustomAppBar(),
-              SeguroTecnico(),
+              SeguroNotebook(),
               Footer(),
             ],
           ),

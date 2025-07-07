@@ -7,6 +7,7 @@ import 'package:perezyeregui/screens/seguros_celulares_screen.dart';
 import 'package:perezyeregui/screens/seguros_mercados_especiales.dart';
 import 'package:perezyeregui/screens/seguros_moto_screen.dart';
 import 'package:perezyeregui/screens/seguros_movilidad_screen.dart';
+import 'package:perezyeregui/screens/seguros_notebook_screen.dart';
 import 'package:perezyeregui/screens/seguros_otros_screen.dart';
 import 'package:perezyeregui/screens/seguros_pyme_screen.dart';
 import 'package:perezyeregui/screens/seguros_responsabilidad_civil_screen.dart';
@@ -72,12 +73,17 @@ final appRouter = GoRouter(
       builder: (context, state) => const SegurosMercadosEspecialesScreen(),
     ),
     GoRoute(
-      path: "/seguro-otros",
+      path: "/seguro-tecnico",
       builder: (context, state) => const SegurosOtrosScreen(),
     ),
     GoRoute(
       path: "/seguro-celulares",
       builder: (context, state) => const SegurosCelularesScreen(),
     ),
+    GoRoute(
+      path: "/seguro-notebooks",
+      builder: (context, state) => const SegurosNotebookScreen(),
+    ),
+    
   ],
 );

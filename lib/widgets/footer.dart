@@ -31,7 +31,7 @@ class FooterState extends State<Footer> {
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          screenWidth > 1000
+          screenWidth > 600
               ? _buildDesktopLayout(context)
               : _buildMobileLayout(context),
           const SizedBox(height: 20),
@@ -153,45 +153,50 @@ class FooterState extends State<Footer> {
   }
 
   Widget _buildMobileLayout(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-       Row(
+    final screenWidth = MediaQuery.of(context).size.width;
+    return Padding(
+      padding:  EdgeInsets.symmetric(horizontal: screenWidth *0.1 ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+         Row(
+              children: [
+                GestureDetector(
+                  onTap: () => context.go("/"),
+                  child: Image.asset(
+                    'assets/icon/logo-perez-yeregui.png',
+                    height: 130,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                GestureDetector(
+                  onTap: openInstagram,
+                  child: SvgPicture.asset(
+                    'assets/icon/iglogo.svg',
+                    height: 50,
+                  ),
+                ),
+              ],
+            ),
+          const SizedBox(height: 30),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: () => context.go("/"),
-                child: Image.asset(
-                  'assets/icon/logo-perez-yeregui.png',
-                  height: 130,
-                ),
-              ),
-              const SizedBox(width: 12),
-              GestureDetector(
-                onTap: openInstagram,
-                child: SvgPicture.asset(
-                  'assets/icon/iglogo.svg',
-                  height: 50,
-                ),
-              ),
+              _buildContactInfo(FontAwesomeIcons.whatsapp, "1169270009",
+                  () => launchUrl(Uri.parse("https://wa.me/541169270009"))),
+              _buildContactInfo(Icons.email, "seguros@perezyeregui.com.ar",
+                  () => launchUrl(Uri.parse("mailto:seguros@perezyeregui.com.ar"))),
+              _buildContactInfo(
+                  Icons.location_on,
+                  "Echeverría 12108, Pacheco, BsAs",
+                  () => launchUrl(Uri.parse(
+                      "https://www.google.com/maps/search/?api=1&query=Echeverría+12108,+Pacheco,+BsAs"))),
+              _buildHorarioInfo(),
             ],
           ),
-        const SizedBox(height: 30),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _buildContactInfo(FontAwesomeIcons.whatsapp, "1169270009",
-                () => launchUrl(Uri.parse("https://wa.me/541169270009"))),
-            _buildContactInfo(Icons.email, "seguros@perezyeregui.com.ar",
-                () => launchUrl(Uri.parse("mailto:seguros@perezyeregui.com.ar"))),
-            _buildContactInfo(
-                Icons.location_on,
-                "Echeverría 12108, Pacheco, BsAs",
-                () => launchUrl(Uri.parse(
-                    "https://www.google.com/maps/search/?api=1&query=Echeverría+12108,+Pacheco,+BsAs"))),
-            _buildHorarioInfo(),
-          ],
-        ),
-      ],
+        ],
+      ),
     );
   }
 

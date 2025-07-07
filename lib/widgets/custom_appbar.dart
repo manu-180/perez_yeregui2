@@ -28,6 +28,21 @@ void openInstagram() async {
 
   openInstagramWeb(url); // Esta función solo abrirá en web
 }
+double _getTextWidth(String text, double fontSize, FontWeight fontWeight) {
+  final textPainter = TextPainter(
+    text: TextSpan(
+      text: text,
+      style: GoogleFonts.montserrat(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+      ),
+    ),
+    maxLines: 1,
+    textDirection: TextDirection.ltr,
+  )..layout();
+
+  return textPainter.width;
+}
 
 
 
@@ -156,7 +171,7 @@ void openInstagram() async {
               AnimatedContainer(
                 duration: Duration(milliseconds: 200),
                 height: 2,
-                width: _hoveredItem == item ? item.length * 6.5 : 0,
+                width: _hoveredItem == item ? _getTextWidth(item, 18, FontWeight.w500) : 0,
                 color: Colors.amber,
               ),
             ],

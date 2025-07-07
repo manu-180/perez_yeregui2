@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SeguroCelulares extends StatelessWidget {
-  const SeguroCelulares({super.key});
+class SeguroNotebook extends StatelessWidget {
+  const SeguroNotebook({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class SeguroCelulares extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/celular.png',
+            'assets/images/notebook.png',
             width: 500,
             height: 500,
             fit: BoxFit.cover,
@@ -51,7 +51,7 @@ class SeguroCelulares extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Seguro de Celular",
+                "Seguro de Notebook",
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class SeguroCelulares extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Seguro de Celular",
+                "Seguro de Notebook",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -120,7 +120,7 @@ class SeguroCelulares extends StatelessWidget {
         children: [
           TextSpan(
             text:
-                'Este seguro brinda protección al celular contra robos y daños resultantes de intentos de robo en espacios públicos en Argentina, las 24 horas del día, durante todo el año',
+                'Este seguro protege Notebooks o Tablets contra Robo o Daño accidental en la vía pública, las 24hs en todo el mundo. También cubre la mochila o funda contenedora.',
           ),
          
         ],

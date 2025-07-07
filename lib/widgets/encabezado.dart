@@ -55,9 +55,13 @@ class EncabezadoState extends State<Encabezado>
 
     return Container(
       width: double.infinity, // Ocupa toda la pantalla
-      height: size.width > 1000
-          ? 500
-          : 700, // Ajusta la altura según el ancho de la pantalla
+     height: size.width > 1000
+    ? size.height * 0.8
+    : size.width > 450
+        ? size.height * 1.4
+        : size.height * 0.85,
+
+ // Ajusta la altura según el ancho de la pantalla
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.centerLeft,
@@ -100,9 +104,7 @@ class EncabezadoState extends State<Encabezado>
                         TyperAnimatedText(
                           "Protegé lo que más valorás.",
                           textStyle: GoogleFonts.montserrat(
-                            fontSize: size.width > 1000
-                                ? size.width * 0.03
-                                : size.width * 0.5,
+                            fontSize: size.width * 0.03,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
@@ -136,8 +138,8 @@ class EncabezadoState extends State<Encabezado>
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: SizedBox(
-                          width: size.width * 0.15,
-                          height: size.width * 0.035,
+                          width: 180,
+                          height: 50,
                           child: ElevatedButton(
                             onPressed: () => context.go('/servicios'),
                             style: ElevatedButton.styleFrom(
@@ -149,7 +151,7 @@ class EncabezadoState extends State<Encabezado>
                             child: Text(
                               "VER SEGUROS",
                               style: GoogleFonts.montserrat(
-                                fontSize: size.width * 0.012,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 color: _isHovered ? Colors.white : Colors.black,
                               ),
@@ -160,8 +162,8 @@ class EncabezadoState extends State<Encabezado>
                     ),
                     SizedBox(width: 20),
                     SizedBox(
-                      width: size.width * 0.15,
-                      height: size.width * 0.035,
+                      width: 180,
+                      height: 50,
                       child: ElevatedButton(
                         onPressed: () => context.go('/contacto'),
                         style: ElevatedButton.styleFrom(
@@ -175,7 +177,7 @@ class EncabezadoState extends State<Encabezado>
                         child: Text(
                           "CONTACTANOS",
                           style: GoogleFonts.montserrat(
-                            fontSize: size.width * 0.012,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
@@ -185,7 +187,10 @@ class EncabezadoState extends State<Encabezado>
                   ],
                 ),
                 SizedBox(height: 30),
-const SeguroCelularCard(),
+const SeguroCelularCard(texto: "¡Nuevo! Seguro para celulares", ruta: '/seguro-celulares'),
+SizedBox(height: 10),
+const SeguroCelularCard(texto: "¡Nuevo! Seguro para notebooks", ruta: '/seguro-notebooks'),
+
 
 
               ],
@@ -234,7 +239,7 @@ const SeguroCelularCard(),
                   "Protegé lo que más valorás.",
                   textStyle: GoogleFonts.montserrat(
                     fontSize:size.width *
-                        0.06, // Tamaño de fuente más grande en móvil
+                        0.05, // Tamaño de fuente más grande en móvil
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -251,10 +256,13 @@ const SeguroCelularCard(),
         Text(
           "Elegí estar seguro.",
           style: GoogleFonts.montserrat(
-            fontSize: size.width> 1000? size.width * 0.025:size.width * 0.05 ,
+            fontSize: size.width> 600? size.width * 0.025:size.width * 0.05 ,
             color: Colors.white70,
           ),
-        ),
+        ),        SizedBox(height: 30),
+const SeguroCelularCard(texto: "¡Nuevo! Seguro para celulares", ruta: '/seguro-celulares'),
+SizedBox(height: 10),
+const SeguroCelularCard(texto: "¡Nuevo! Seguro para notebooks", ruta: '/seguro-notebooks'),
         SizedBox(height: 20),
 
         MouseRegion(
@@ -276,7 +284,7 @@ const SeguroCelularCard(),
               child: Text(
                 "VER SEGUROS",
                 style: GoogleFonts.montserrat(
-                  fontSize: size.width> 1000? size.width * 0.015:size.width * 0.03,
+                  fontSize: size.width> 600? size.width * 0.015:size.width * 0.035,
                   fontWeight: FontWeight.bold,
                   color: _isHovered ? Colors.white : Colors.black,
                 ),
@@ -297,14 +305,14 @@ const SeguroCelularCard(),
           child: Text(
             "CONTACTANOS",
             style: GoogleFonts.montserrat(
-              fontSize: size.width> 1000? size.width * 0.015:size.width * 0.03,
+              fontSize: size.width> 600? size.width * 0.015:size.width * 0.035,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
           ),
         ),
-        SizedBox(height: 30),
-const SeguroCelularCard(),
+
+
 
 
 
@@ -326,7 +334,11 @@ const SeguroCelularCard(),
 }
 
 class SeguroCelularCard extends StatefulWidget {
-  const SeguroCelularCard({super.key});
+
+  final String texto;
+  final String ruta;
+
+  const SeguroCelularCard({super.key, required this.texto, required this.ruta});
 
   @override
   State<SeguroCelularCard> createState() => _SeguroCelularCardState();
@@ -365,7 +377,7 @@ class _SeguroCelularCardState extends State<SeguroCelularCard>
     return FadeTransition(
        opacity: _isHovered ? const AlwaysStoppedAnimation(1.0) : _opacity,
       child: GestureDetector(
-        onTap: () => context.go('/seguro-celulares'),
+        onTap: () => context.go(widget.ruta),
         child: MouseRegion(
           cursor: SystemMouseCursors.click,
           onEnter: (_) => setState(() => _isHovered = true),
@@ -374,7 +386,7 @@ class _SeguroCelularCardState extends State<SeguroCelularCard>
             duration: const Duration(milliseconds: 300),
             transform: (_isHovered ? (Matrix4.identity()..scale(1.03)) : Matrix4.identity()),
             curve: Curves.easeOut,
-            width: isWideScreen ? screenWidth * 0.3 : screenWidth * 0.6,
+            constraints: BoxConstraints(maxWidth: 330),
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -400,9 +412,9 @@ class _SeguroCelularCardState extends State<SeguroCelularCard>
                       color: _isHovered ? const Color.fromARGB(255, 184, 184, 40) : Colors.white,
                     ),
                     const SizedBox(width: 12),
-                    const Flexible(
+                     Flexible(
                       child: Text(
-                        '¡Nuevo! Seguro para celulares y notebooks',
+                     widget.texto,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,

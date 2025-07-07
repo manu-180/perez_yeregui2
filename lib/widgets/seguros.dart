@@ -66,21 +66,34 @@ class SegurosWidgetState extends State<SegurosWidget> {
       'ruta': '/seguro-mercados-especiales'
     },
     {
-      'icon': FontAwesomeIcons.ellipsis,
-      'title': 'OTROS',
-      'subtitle': 'Más opciones para vos',
-      'ruta': '/seguro-otros'
+      'icon': FontAwesomeIcons.toolbox,
+      'title': 'SEGURO TECNICO',
+      'subtitle': 'Protegé tus dispositivos',
+      'ruta': '/seguro-tecnico'
+    },
+     {
+      'icon': FontAwesomeIcons.mobileAlt,
+      'title': 'CELULAR',
+      'subtitle': 'Protección completa',
+      'ruta': '/seguro-celulares'
+    },
+     {
+      'icon': FontAwesomeIcons.laptop,
+      'title': 'NOTEBOOK',
+      'subtitle': 'Cobertura total',
+      'ruta': '/seguro-notebooks'
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final isDesktop = screenWidth > 600;
 
     return Container(
   color: Colors.white,
   width: double.infinity,
-  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04, vertical: 60),
+  padding: EdgeInsets.symmetric(horizontal: isDesktop?   screenWidth * 0.1 : screenWidth * 0.05, vertical: 60),
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -89,23 +102,24 @@ class SegurosWidgetState extends State<SegurosWidget> {
         "Conocé nuestros seguros",
         textAlign: TextAlign.start,
         style: TextStyle(
-          fontSize: screenWidth > 1000 ? screenWidth * 0.03 : screenWidth * 0.07,
+          fontSize: screenWidth > 800 ? screenWidth * 0.03 : screenWidth * 0.068,
           fontWeight: FontWeight.bold,
           color: Color(0xFF5C5664),
         ),
       ),
+      Divider(),
       SizedBox(height: screenWidth * 0.02),
       LayoutBuilder(
         builder: (context, constraints) {
-          int crossAxisCount = screenWidth > 1000 ? 5 : 2;
+          int crossAxisCount = screenWidth > 800 ? 4 : 2;
 
           return GridView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: crossAxisCount,
-              crossAxisSpacing: screenWidth * 0.02,
-              mainAxisSpacing: screenWidth * 0.02,
+              crossAxisSpacing: screenWidth * 0.03,
+              mainAxisSpacing: screenWidth * 0.03,
               childAspectRatio: 1,
             ),
             itemCount: seguros.length,
@@ -152,77 +166,81 @@ class _SeguroItemState extends State<SeguroItem> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final isDesktop = size.width > 1000;
+    final isDesktop = size.width > 800;
 
     return MouseRegion(
+      cursor: SystemMouseCursors.click,
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
       child: SizedBox(
         height: size.width * 0.25, // Aumentado para mayor altura
         child: GestureDetector(
-          child: Card(
-            elevation: _isHovered ? 5 : 2,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FaIcon(
-                  widget.icon,
-                  size: isDesktop ? size.width * 0.03 : size.width * 0.09,
-                  color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
-                ),
-                SizedBox(
-                    height: isDesktop ? size.width * 0.015 : size.width * 0.03),
-                Text(
-                  widget.title,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: isDesktop ? size.width * 0.012 : size.width * 0.04,
-                    fontWeight: FontWeight.bold,
-                    color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
-                  ),
-                ),
-                SizedBox(
-                    height: isDesktop ? size.width * 0.007 : size.width * 0.02),
-                Text(
-                  widget.subtitle,
-                  style: TextStyle(
-                    fontSize: isDesktop ? size.width * 0.011 : size.width * 0.03,
-                    color: Color(0xFF5C5664),
-                  ),
-                ),
-                SizedBox(
-                    height: isDesktop ? size.width * 0.007 : size.width * 0.025),
-                SizedBox(
-                  width: isDesktop ? size.width * 0.1 : size.width * 0.25,
-                  height: isDesktop ? size.width * 0.02 : size.width * 0.06,
-                  child: OutlinedButton(
-                    onPressed: () => context.push(widget.ruta),
-                    style: OutlinedButton.styleFrom(
-                      side: BorderSide(
-                        color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
-                      ),
-                      backgroundColor:
-                          _isHovered ? Color(0xFFD1AD7C) : Colors.transparent,
-                      minimumSize:
-                          Size.zero, // Elimina el tamaño mínimo predeterminado
-                      padding: EdgeInsets.zero, // Elimina el padding interno
-                      tapTargetSize: MaterialTapTargetSize
-                          .shrinkWrap, // Reduce el área de toque
-                      alignment: Alignment.center, // Alinea el texto al centro
-                    ),
-                    child: Text(
-                      "Conocé más",
-                      style: TextStyle(
-                        color: _isHovered ? Colors.white : Color(0xFF5C5664),
-                        fontSize:
-                            isDesktop ? size.width * 0.008 : size.width * 0.025,
-                      ),
-                    ),
-                  ),
-                )
-              ],
+          child: AnimatedScale(
+  scale: _isHovered ? 1.1 : 1.0,
+  duration: Duration(milliseconds: 200),
+  curve: Curves.easeOut,
+  child: Card(
+    elevation: _isHovered ? 5 : 2,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        FaIcon(
+          widget.icon,
+          size: isDesktop ? size.width * 0.03 : size.width * 0.09,
+          color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
+        ),
+        SizedBox(height: isDesktop ? size.width * 0.015 : size.width * 0.03),
+        Text(
+          widget.title,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: isDesktop ? size.width * 0.012 : size.width * 0.04,
+            fontWeight: FontWeight.bold,
+            color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
+          ),
+        ),
+        SizedBox(height: isDesktop ? size.width * 0.007 : size.width * 0.02),
+        Text(
+          widget.subtitle,
+          style: TextStyle(
+            fontSize: isDesktop ? size.width * 0.011 : size.width * 0.03,
+            color: Color(0xFF5C5664),
+          ),
+        ),
+        SizedBox(height: isDesktop ? size.width * 0.007 : size.width * 0.025),
+        isDesktop ?
+        SizedBox(
+          width: isDesktop ? size.width * 0.1 : size.width * 0.25,
+          height: isDesktop ? size.width * 0.02 : size.width * 0.06,
+          child: OutlinedButton(
+            onPressed: () => context.push(widget.ruta),
+            style: OutlinedButton.styleFrom(
+              side: BorderSide(
+                color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
+              ),
+              backgroundColor:
+                  _isHovered ? Color(0xFFD1AD7C) : Colors.transparent,
+              minimumSize: Size.zero,
+              padding: EdgeInsets.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              alignment: Alignment.center,
+            ),
+            child: Text(
+              "Conocé más",
+              style: TextStyle(
+                color: _isHovered ? Colors.white : Color(0xFF5C5664),
+                fontSize:
+                    isDesktop ? size.width * 0.008 : size.width * 0.025,
+              ),
             ),
           ),
+        ):
+        SizedBox()
+      ],
+    ),
+  ),
+)
+,
           onTap: () => context.push(widget.ruta),
         ),
       ),

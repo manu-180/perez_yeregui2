@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SeguroOtros extends StatelessWidget {
-  const SeguroOtros({super.key});
+class SeguroTecnico extends StatelessWidget {
+  const SeguroTecnico({super.key});
 
   @override
   Widget build(BuildContext context) {

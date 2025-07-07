@@ -21,53 +21,83 @@ class _ContactoState extends State<Contacto> {
   bool enviando = false;
 
   Future<void> enviarFormulario() async {
-    if (!_formKey.currentState!.validate()) return;
+  if (!_formKey.currentState!.validate()) return;
 
-    const serviceId = 'service_0tzx0aw';
-    const templateId = 'template_coawcvr';
-    const publicKey = 'UapUkrGXYrXahZMcZ';
+  final functionUrl =
+      Uri.parse('https://assistify-token-generator-1014.twil.io/send-email');
 
-    final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+  final headers = {'Content-Type': 'application/json'};
 
-    setState(() => enviando = true);
+  final nombre = nombreController.text.trim();
+  final email = correoController.text.trim();
+  final telefono = celularController.text.trim();
+  final asunto = asuntoController.text.trim();
+  final mensaje = mensajeController.text.trim();
 
-    final response = await http.post(
-      url,
-      headers: {
-        'origin': 'http://localhost',
-        'Content-Type': 'application/json',
-      },
-      body: json.encode({
-        'service_id': serviceId,
-        'template_id': templateId,
-        'user_id': publicKey,
-        'template_params': {
-          'name': nombreController.text,
-          'email': correoController.text,
-          'celular': celularController.text,
-          'title': asuntoController.text,
-          'message': mensajeController.text,
-        }
-      }),
+  setState(() => enviando = true);
+
+  final subjectAdmin = 'Nueva consulta de $nombre';
+  final contentAdmin = '''
+Nombre: $nombre
+Email: $email
+Teléfono: $telefono
+Asunto: $asunto
+
+Mensaje:
+$mensaje
+''';
+
+  final subjectUser = 'Hemos recibido tu consulta';
+  final contentUser = '''
+Hola $nombre,
+
+Gracias por contactarte con nuestro equipo. Hemos recibido tu consulta:
+
+"$mensaje"
+
+Nos estaremos comunicando con vos a la brevedad.
+
+Saludos cordiales,
+El equipo de Perezyeregui
+''';
+
+  try {
+    // 1. Enviar al administrador
+    await http.post(functionUrl,
+        headers: headers,
+        body: jsonEncode({
+          'to': 'manunv97@gmail.com',
+          'subject': subjectAdmin,
+          'text': contentAdmin,
+        }));
+
+    // 2. Enviar al usuario
+    await http.post(functionUrl,
+        headers: headers,
+        body: jsonEncode({
+          'to': email,
+          'subject': subjectUser,
+          'text': contentUser,
+        }));
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('✅ ¡Mensaje enviado con éxito!')),
     );
 
+    nombreController.clear();
+    celularController.clear();
+    correoController.clear();
+    asuntoController.clear();
+    mensajeController.clear();
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('❌ Error al enviar: $e')),
+    );
+  } finally {
     setState(() => enviando = false);
-
-    if (response.statusCode == 200) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('✅ ¡Mensaje enviado con éxito!')),
-      );
-      nombreController.clear();
-      celularController.clear();
-      correoController.clear();
-      asuntoController.clear();
-      mensajeController.clear();
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('❌ Error al enviar: ${response.body}')),
-      );
-    }
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
