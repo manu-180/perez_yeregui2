@@ -23,80 +23,70 @@ class _ContactoState extends State<Contacto> {
   Future<void> enviarFormulario() async {
   if (!_formKey.currentState!.validate()) return;
 
-  final functionUrl =
-      Uri.parse('https://assistify-token-generator-1014.twil.io/send-email');
-
-  final headers = {'Content-Type': 'application/json'};
+  setState(() => enviando = true);
 
   final nombre = nombreController.text.trim();
-  final email = correoController.text.trim();
-  final telefono = celularController.text.trim();
+  final celular = celularController.text.trim();
+  final correo = correoController.text.trim();
   final asunto = asuntoController.text.trim();
   final mensaje = mensajeController.text.trim();
 
-  setState(() => enviando = true);
+  final url = Uri.parse('https://assistify-token-generator-1014.twil.io/send-email');
 
-  final subjectAdmin = 'Nueva consulta de $nombre';
-  final contentAdmin = '''
-Nombre: $nombre
-Email: $email
-Teléfono: $telefono
-Asunto: $asunto
-
-Mensaje:
-$mensaje
-''';
-
-  final subjectUser = 'Hemos recibido tu consulta';
-  final contentUser = '''
+  final response = await http.post(
+    url,
+    headers: {'Content-Type': 'application/json'},
+    body: jsonEncode({
+      'to': correo,
+      'subject': '✅ Confirmación de tu consulta a Pérez Yeregui',
+      'text': '''
 Hola $nombre,
+Gracias por contactarte con nosotros. Recibimos tu mensaje:
+📝 Mensaje: $mensaje
 
-Gracias por contactarte con nuestro equipo. Hemos recibido tu consulta:
+Pronto nos pondremos en contacto con vos.
+Saludos,
+Equipo de Pérez Yeregui
+''',
 
-"$mensaje"
+    }),
+  );
 
-Nos estaremos comunicando con vos a la brevedad.
+  // También enviar a manunv97@gmail.com
+  await http.post(
+    url,
+    headers: {'Content-Type': 'application/json'},
+    body: jsonEncode({
+      'to': 'manunv97@gmail.com',
+      'subject': '📩 Nuevo mensaje desde el formulario de contacto',
+      
+      'text': "📥 Nuevo contacto recibido:\n\n👤 Nombre: $nombre\n📞 Celular: $celular\n📧 Correo: $correo\n📌 Asunto: $asunto\n📝 Mensaje: $mensaje\n" 
+,
+    }),
+  );
 
-Saludos cordiales,
-El equipo de Perezyeregui
-''';
+  setState(() => enviando = false);
 
-  try {
-    // 1. Enviar al administrador
-    await http.post(functionUrl,
-        headers: headers,
-        body: jsonEncode({
-          'to': 'manunv97@gmail.com',
-          'subject': subjectAdmin,
-          'text': contentAdmin,
-        }));
-
-    // 2. Enviar al usuario
-    await http.post(functionUrl,
-        headers: headers,
-        body: jsonEncode({
-          'to': email,
-          'subject': subjectUser,
-          'text': contentUser,
-        }));
-
+  if (response.statusCode == 200) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('✅ ¡Mensaje enviado con éxito!')),
+      const SnackBar(
+        content: Text("✅ Consulta enviada correctamente."),
+        backgroundColor: Colors.green,
+      ),
     );
-
-    nombreController.clear();
-    celularController.clear();
-    correoController.clear();
-    asuntoController.clear();
-    mensajeController.clear();
-  } catch (e) {
+    _formKey.currentState!.reset();
+  } else {
+    print("Error: ${response.body}");
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('❌ Error al enviar: $e')),
+      const SnackBar(
+        content: Text("❌ Error al enviar el mensaje. Intentá nuevamente."),
+        backgroundColor: Colors.red,
+      ),
     );
-  } finally {
-    setState(() => enviando = false);
   }
 }
+
+
 
 
   @override
