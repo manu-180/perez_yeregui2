@@ -57,7 +57,7 @@ Equipo de Pérez Yeregui
     url,
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
-      'to': 'manunv97@gmail.com',
+      'to': 'seguros@perezyeregui.com.ar',
       'subject': '📩 Nuevo mensaje desde el formulario de contacto',
       
       'text': "📥 Nuevo contacto recibido:\n\n👤 Nombre: $nombre\n📞 Celular: $celular\n📧 Correo: $correo\n📌 Asunto: $asunto\n📝 Mensaje: $mensaje\n" 
