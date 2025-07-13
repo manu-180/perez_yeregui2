@@ -87254,7 +87254,7 @@ return A.X(A.aK6(j,B.bz.H2(A.at(["to",m,"subject","\u2705 Confirmaci\xf3n de tu 
 case 3:h=b
 i=A.at(["Content-Type","application/json"],f,f)
 s=4
-return A.X(A.aK6(j,B.bz.H2(A.at(["to","manunv97@gmail.com","subject","\ud83d\udce9 Nuevo mensaje desde el formulario de contacto","text","\ud83d\udce5 Nuevo contacto recibido:\n\n\ud83d\udc64 Nombre: "+o+"\n\ud83d\udcde Celular: "+n+"\n\ud83d\udce7 Correo: "+m+"\n\ud83d\udccc Asunto: "+l+"\n\ud83d\udcdd Mensaje: "+k+"\n"],f,f),null),i),$async$uB)
+return A.X(A.aK6(j,B.bz.H2(A.at(["to","seguros@perezyeregui.com.ar","subject","\ud83d\udce9 Nuevo mensaje desde el formulario de contacto","text","\ud83d\udce5 Nuevo contacto recibido:\n\n\ud83d\udc64 Nombre: "+o+"\n\ud83d\udcde Celular: "+n+"\n\ud83d\udce7 Correo: "+m+"\n\ud83d\udccc Asunto: "+l+"\n\ud83d\udcdd Mensaje: "+k+"\n"],f,f),null),i),$async$uB)
 case 4:p.ah(new A.apF(p))
 f=t.Pu
 if(h.b===200){p.c.aq(f).f.Kn(B.T8)
